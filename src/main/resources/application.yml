@@ -1,0 +1,28 @@
+server:
+  forward-headers-strategy: native
+  shutdown: graceful
+  port: 8080
+spring:
+  mvc:
+    async:
+      request-timeout: 600000
+  application:
+    name: exam2025
+  config:
+    import: optional:configserver:${CONFIG_SERVER}
+  cloud:
+    discovery:
+      enabled: false
+  resources.add-mappings: false
+management:
+  endpoint:
+    health:
+      logging:
+        slow-indicator-threshold: 100ms
+springdoc:
+  swagger-ui:
+    enabled: true
+    filter: true
+    tryItOutEnabled: true
+exam:
+  test: 1234
