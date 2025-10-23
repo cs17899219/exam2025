@@ -1,4 +1,4 @@
-package top.ksmdev.exam2025.common.controller;
+package exam2025.common.controller;
 
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package top.ksmdev.exam2025.config;
+package exam2025.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.micrometer.tracing.Tracer;
@@ -13,8 +13,8 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-import top.ksmdev.exam2025.Application;
-import top.ksmdev.exam2025.common.controller.ResultData;
+import exam2025.Application;
+import exam2025.common.controller.ResultData;
 
 import java.lang.reflect.Method;
 import java.util.Objects;

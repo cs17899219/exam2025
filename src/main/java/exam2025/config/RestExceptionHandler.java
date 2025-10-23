@@ -1,4 +1,4 @@
-package top.ksmdev.exam2025.config;
+package exam2025.config;
 
 
 import io.sentry.Sentry;
@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import top.ksmdev.exam2025.common.controller.ResultData;
-import top.ksmdev.exam2025.common.controller.ReturnCode;
+import exam2025.common.controller.ResultData;
+import exam2025.common.controller.ReturnCode;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

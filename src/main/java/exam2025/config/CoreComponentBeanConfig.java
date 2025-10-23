@@ -1,4 +1,4 @@
-package top.ksmdev.exam2025.config;
+package exam2025.config;
 
 import io.micrometer.context.ContextSnapshotFactory;
 import org.springframework.context.annotation.Bean;
