@@ -1,0 +1,49 @@
+services:
+  mysql80:
+    image: public.ecr.aws/bitnami/mysql:8.0.40
+    container_name: mysql80
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_SQL_MODE=""
+      - MYSQL_ROOT_PASSWORD=11223344
+      - MYSQL_AUTHENTICATION_PLUGIN=mysql_native_password
+      - MYSQL_CHARACTER_SET=utf8mb4
+      - MYSQL_COLLATE=utf8mb4_0900_ai_ci
+    volumes:
+      - mysql_data_80:/bitnami/mysql/data
+  redis:
+    image: public.ecr.aws/bitnami/redis:6.2
+    container_name: redis
+    restart: unless-stopped
+    command:
+      - /opt/bitnami/scripts/redis/run.sh
+      - --maxmemory 400mb
+      - --maxmemory-policy allkeys-lru
+      - --databases 250
+    environment:
+      ALLOW_EMPTY_PASSWORD: yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/bitnami/redis/data
+  rabbit:
+    image: registry.ksmdev.top/kit/docker-images/rabbitmq:3.12-management-delayed-msg
+    container_name: rabbit
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: 11223344
+    volumes:
+      - rabbitmq_date:/var/lib/rabbitmq
+volumes:
+  mysql_data_80:
+    driver: local
+  rabbitmq_date:
+    driver: local
+  redis_data:
+    driver: local
